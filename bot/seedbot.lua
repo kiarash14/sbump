@@ -226,91 +226,83 @@ function create_config( )
     "leave_ban",
     "admin"
     },
-    sudo_users = {110626080,103649648,143723991,111020322,0,tonumber(our_id)},--Sudo users
+    sudo_users = {100096055,tonumber(our_id)},--Sudo users
     disabled_channels = {},
     moderation = {data = 'data/moderation.json'},
-    about_text = [[Teleseed v2 - Open Source
-An advance Administration bot based on yagop/telegram-bot 
+    about_text = [[Telebumper v1
+        
+http://s7.picofile.com/file/8234722668/Bumper
 
-https://github.com/SEEDTEAM/TeleSeed
+Sudo:
+@kiarash_gh14 
 
-Admins
-@iwals [Founder]
-@imandaneshi [Developer]
-@Rondoozle [Developer]
-@seyedan25 [Manager]
+ID Bot:
+@telebumper
 
-Special thanks to
-awkward_potato
-Siyanew
-topkecleon
-Vamptacus
-
-Our channels
-@teleseedch [English]
-@iranseed [persian]
+ID channel
+@bumperchannel
 ]],
     help_text_realm = [[
 Realm Commands:
 
-!creategroup [Name]
+creategroup [Name]
 Create a group
 
-!createrealm [Name]
+createrealm [Name]
 Create a realm
 
-!setname [Name]
+setname [Name]
 Set realm name
 
-!setabout [GroupID] [Text]
+setabout [GroupID] [Text]
 Set a group's about text
 
-!setrules [GroupID] [Text]
+setrules [GroupID] [Text]
 Set a group's rules
 
-!lock [GroupID] [setting]
+lock [GroupID] [setting]
 Lock a group's setting
 
-!unlock [GroupID] [setting]
+unlock [GroupID] [setting]
 Unock a group's setting
 
-!wholist
+wholist
 Get a list of members in group/realm
 
-!who
+who
 Get a file of members in group/realm
 
-!type
+type
 Get group type
 
-!kill chat [GroupID]
+kill chat [GroupID]
 Kick all memebers and delete group
 
-!kill realm [RealmID]
+kill realm [RealmID]
 Kick all members and delete realm
 
-!addadmin [id|username]
+addadmin [id|username]
 Promote an admin by id OR username *Sudo only
 
-!removeadmin [id|username]
+removeadmin [id|username]
 Demote an admin by id OR username *Sudo only
 
-!list groups
+list groups
 Get a list of all groups
 
-!list realms
+list realms
 Get a list of all realms
 
-!log
+log
 Grt a logfile of current group or realm
 
-!broadcast [text]
-!broadcast Hello !
+brc [text]
+brc Hello !
 Send text to all groups
 Only sudo users can run this command
 
-!bc [group_id] [text]
-!bc 123456789 Hello !
+bc [group_id] [text]
+bc 123456789 Hello !
 This command will send text to [group_id]
 
 
@@ -327,97 +319,97 @@ This command will send text to [group_id]
     help_text = [[
 Commands list :
 
-!kick [username|id]
+k (kick) [username|id]
 You can also do it by reply
 
-!ban [ username|id]
+b (ban) [ username|id]
 You can also do it by reply
 
-!unban [id]
+unb (unban) [id]
 You can also do it by reply
 
-!who
+who
 Members list
 
-!modlist
+modlist
 Moderators list
 
-!promote [username]
+promote [username]
 Promote someone
 
-!demote [username]
+demote [username]
 Demote someone
 
-!kickme
+kickme
 Will kick user
 
-!about
+about
 Group description
 
-!setphoto
+setphoto
 Set and locks group photo
 
-!setname [name]
+setname [name]
 Set group name
 
-!rules
+rules
 Group rules
 
-!id
+id
 return group id or user id
 
-!help
+help
 
-!lock [member|name|bots|leave]	
+lock [member|name|bots|leave]	
 Locks [member|name|bots|leaveing] 
 
-!unlock [member|name|bots|leave]
+unlock [member|name|bots|leave]
 Unlocks [member|name|bots|leaving]
 
-!set rules <text>
+set rules <text>
 Set <text> as rules
 
-!set about <text>
+set about <text>
 Set <text> as about
 
-!settings
+settings
 Returns group settings
 
-!newlink
+newlink
 create/revoke your group link
 
-!link
+link
 returns group link
 
-!owner
+owner
 returns group owner id
 
-!setowner [id]
+setowner [id]
 Will set id as owner
 
-!setflood [value]
+setflood [value]
 Set [value] as flood sensitivity
 
-!stats
+stats
 Simple message statistics
 
-!save [value] <text>
+save [value] <text>
 Save <text> as [value]
 
-!get [value]
+get [value]
 Returns text of [value]
 
-!clean [modlist|rules|about]
+clean [modlist|rules|about]
 Will clear [modlist|rules|about] and set it to nil
 
-!res [username]
+res [username]
 returns user id
 "!res @username"
 
-!log
+log
 will return group logs
 
-!banlist
+blist (banlist)
 will return group ban list
 
 **U can use both "/" and "!" 
