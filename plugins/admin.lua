@@ -113,17 +113,17 @@ local function run(msg,matches)
     	return
     end
     if msg.media then
-      	if msg.media.type == 'photo' and redis:get("bot:photo") then
+      	if msg.media.type == 'p' and redis:get("bot:photo") then
       		if redis:get("bot:photo") == 'waiting' then
         		load_photo(msg.id, set_bot_photo, msg)
       		end
       	end
     end
-    if matches[1] == "setbotphoto" then
+    if matches[1] == "sbp" then
     	redis:set("bot:photo", "waiting")
     	return 'Please send me bot photo now'
     end
-    if matches[1] == "markread" then
+    if matches[1] == "mrk" then
     	if matches[2] == "on" then
     		redis:set("bot:markread", "on")
     		return "Mark read > on"
@@ -153,15 +153,15 @@ local function run(msg,matches)
     	local hash = parsed_url(matches[2])
     	import_chat_link(hash,ok_cb,false)
     end
-    if matches[1] == "contactlist" then
+    if matches[1] == "clist" then
       get_contact_list(get_contact_list_callback, {target = msg.from.id})
       return "I've sent contact list with both json and text format to your private"
     end
-    if matches[1] == "delcontact" then
+    if matches[1] == "dc" then
       del_contact("user#id"..matches[2],ok_cb,false)
       return "User "..matches[2].." removed from contact list"
     end
-    if matches[1] == "dialoglist" then
+    if matches[1] == "dglist" then
       get_dialog_list(get_dialog_list_callback, {target = msg.from.id})
       return "I've sent dialog list with both json and text format to your private"
     end
@@ -176,13 +176,13 @@ return {
 	"^(import) (.*)$",
 	"^(unblock) (%d+)$",
 	"^(block) (%d+)$",
-	"^(markread) (on)$",
-	"^(markread) (off)$",
-	"^(setbotphoto)$",
+	"^(mrk) (on)$",
+	"^(mrk) (off)$",
+	"^(sbp)$",
 	"%[(photo)%]",
-	"^(contactlist)$",
-	"^(dialoglist)$",
-	"^(delcontact) (%d+)$",
+	"^(clist)$",
+	"^(dglist)$",
+	"^(dc) (%d+)$",
 	"^(whois) (%d+)$"
   },
   run = run,
