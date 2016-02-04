@@ -245,25 +245,25 @@ ID channel
     help_text_realm = [[
 Realm Commands:
 
-creategroup [Name]
+cg [Name] (creategroup)
 Create a group
 
-createrealm [Name]
+cr [Name] (createrealm)
 Create a realm
 
-setname [Name]
+sn [Name] (setname)
 Set realm name
 
-setabout [GroupID] [Text]
+sa [GroupID] [Text] (setabout)
 Set a group's about text
 
-setrules [GroupID] [Text]
+sr [GroupID] [Text] (setrules)
 Set a group's rules
 
-lock [GroupID] [setting]
+l [GroupID] [setting]
 Lock a group's setting
 
-unlock [GroupID] [setting]
+unl [GroupID] [setting]
 Unock a group's setting
 
 wholist
@@ -281,10 +281,10 @@ Kick all memebers and delete group
 kill realm [RealmID]
 Kick all members and delete realm
 
-addadmin [id|username]
+add [id|username] (addadmin)
 Promote an admin by id OR username *Sudo only
 
-removeadmin [id|username]
+rd [id|username] (removeadmin)
 Demote an admin by id OR username *Sudo only
 
 list groups
@@ -331,13 +331,13 @@ You can also do it by reply
 who
 Members list
 
-modlist
+plist (promotelist)
 Moderators list
 
-promote [username]
+p [username] (promote)
 Promote someone
 
-demote [username]
+d [username] (demote)
 Demote someone
 
 kickme
@@ -346,10 +346,10 @@ Will kick user
 about
 Group description
 
-setphoto
+sp (setphoto)
 Set and locks group photo
 
-setname [name]
+sn [name] (setname)
 Set group name
 
 rules
@@ -360,34 +360,34 @@ return group id or user id
 
 help
 
-lock [member|name|bots|leave]	
+lock (lock) [m(member)|n(name)|bot|le(leave)]	
 Locks [member|name|bots|leaveing] 
 
-unlock [member|name|bots|leave]
+unl (unlock) [m(member)|n(name)|bot|le(leave)]
 Unlocks [member|name|bots|leaving]
 
-set rules <text>
+s r <text> (set rules)
 Set <text> as rules
 
-set about <text>
+s a <text> (set about)
 Set <text> as about
 
 settings
 Returns group settings
 
-newlink
+nl (newlink)
 create/revoke your group link
 
-link
+l (link)
 returns group link
 
 owner
 returns group owner id
 
-setowner [id]
+so [id] (setowner)
 Will set id as owner
 
-setflood [value]
+sf [value] (setflood)
 Set [value] as flood sensitivity
 
 stats
@@ -399,7 +399,7 @@ Save <text> as [value]
 get [value]
 Returns text of [value]
 
-clean [modlist|rules|about]
+c (clean) [plist|r(rules)|a(about)]
 Will clear [modlist|rules|about] and set it to nil
 
 res [username]
