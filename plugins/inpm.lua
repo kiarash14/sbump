@@ -47,13 +47,13 @@ local function run(msg, matches)
       if is_gbanned(msg.from.id) then
             return 'You are globally banned.'
       end
-      if data[tostring(matches[2])]['settings']['lock_member'] == 'yes' and not is_owner2(msg.from.id, matches[2]) then
+      if data[tostring(matches[2])]['settings']['l_m'] == 'yes' and not is_owner2(msg.from.id, matches[2]) then
         return 'Group is private.'
       end
           local chat_id = "chat#id"..matches[2]
           local user_id = "user#id"..msg.from.id
    	  chat_add_user(chat_id, user_id, ok_cb, false)   
-	  local group_name = data[tostring(matches[2])]['settings']['set_name']	
+	  local group_name = data[tostring(matches[2])]['settings']['s_n']	
 	  return "Added you to chat:\n\n👥"..group_name.." (ID:"..matches[2]..")"
         elseif matches[1] == 'join' and not data[tostring(matches[2])] then
 		
@@ -81,7 +81,7 @@ return {
       "^(chats)$",
       "^(chatlist)$",
       "^(join) (.*)$",
-      "^[/!](kickme) (.*)$",
+      "^(kickme) (.*)$",
       "^!!tgservice (chat_add_user)$"
     },
     run = run,
