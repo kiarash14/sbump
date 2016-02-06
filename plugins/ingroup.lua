@@ -197,7 +197,7 @@ local function show_group_settingsmod(msg, data, target)
     end
     local bots_protection = "Yes"
     if data[tostring(msg.to.id)]['settings']['l_bot'] then
-    	bots_protection = data[tostring(msg.to.id)]['settings']['lock_bots']
+    	bots_protection = data[tostring(msg.to.id)]['settings']['l_bot']
    	end
     local leave_ban = "no"
     if data[tostring(msg.to.id)]['settings']['le_b'] then
@@ -218,7 +218,7 @@ local function set_descriptionmod(msg, data, target, about)
   return 'Set group description to:\n'..about
 end
 local function get_description(msg, data)
-  local data_cat = 'description'
+  local data_cat = 'de'
   if not data[tostring(msg.to.id)][data_cat] then
     return 'No description available.'
   end
@@ -516,9 +516,9 @@ local function set_group_photo(msg, success, result)
     os.rename(result, file)
     print('File moved to:', file)
     chat_set_photo (receiver, file, ok_cb, false)
-    data[tostring(msg.to.id)]['settings']['set_photo'] = file
+    data[tostring(msg.to.id)]['settings']['s_p'] = file
     save_data(_config.moderation.data, data)
-    data[tostring(msg.to.id)]['settings']['lock_photo'] = 'yes'
+    data[tostring(msg.to.id)]['settings']['l_p'] = 'yes'
     save_data(_config.moderation.data, data)
     send_large_msg(receiver, 'Photo saved!', ok_cb, false)
   else
@@ -884,12 +884,12 @@ local function run(msg, matches)
       
       savelog(msg.to.id, "Group { "..msg.to.print_name.." }  name changed to [ "..new_name.." ] by "..name_log.." ["..msg.from.id.."]")
     end
-    if matches[1] == 'setphoto' and is_momod(msg) then
+    if matches[1] == 'sp' and is_momod(msg) then
       data[tostring(msg.to.id)]['settings']['s_p'] = 'waiting'
       save_data(_config.moderation.data, data)
       return 'Please send me new group photo now'
     end
-    if matches[1] == 'promote' and not matches[2] then
+    if matches[1] == 'p' and not matches[2] then
       if not is_owner(msg) then
         return "Only the owner can prmote new moderators"
       end
@@ -944,7 +944,7 @@ local function run(msg, matches)
 	local username = string.gsub(matches[2], '@', '')
 	return res_user(username, promote_demote_res, cbres_extra)
     end
-    if matches[1] == 'plist' then
+    if matches[1] == 'modlist' then
       savelog(msg.to.id, name_log.." ["..msg.from.id.."] requested group modlist")
       return modlist(msg)
     end
@@ -1136,7 +1136,7 @@ local function run(msg, matches)
         local receiver = get_receiver(msg)
         chat_info(receiver, cleanmember, {receiver=receiver})
       end
-      if matches[2] == 'plist' then
+      if matches[2] == 'modlist' then
         if next(data[tostring(msg.to.id)]['moderators']) == nil then --fix way
           return 'No moderator in this group.'
         end
@@ -1247,7 +1247,7 @@ return {
   "^(sf) (%d+)$",
   "^(settings)$",
 -- "^(pu) (.*)$",
-  "^(plist)$",
+  "^(modlist)$",
   "^(nl)$",
   "^(l)$",
   "^(kic)$",
