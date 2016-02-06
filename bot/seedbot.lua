@@ -225,7 +225,6 @@ function create_config( )
     "all",
     "leave_ban",
     "admin"
-    "lock_join"
     "antilink"
     "feedback"
     },
