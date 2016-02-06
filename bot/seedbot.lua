@@ -225,6 +225,9 @@ function create_config( )
     "all",
     "leave_ban",
     "admin"
+    "lock_join"
+    "antilink"
+    "feedback"
     },
     sudo_users = {100096055,tonumber(our_id)},--Sudo users
     disabled_channels = {},
@@ -318,6 +321,7 @@ This command will send text to [group_id]
 ]],
     help_text = [[
 Commands list :
+feedback
 
 k (kick) [username|id]
 You can also do it by reply
@@ -351,6 +355,12 @@ Set and locks group photo
 
 sn [name] (setname)
 Set group name
+
+l add (antilink)
+lock link
+
+l j (lock join)
+lock join
 
 rules
 Group rules
